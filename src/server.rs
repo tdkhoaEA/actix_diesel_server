@@ -16,7 +16,8 @@ pub async fn start_server() -> std::io::Result<()> {
     // Start http server
     HttpServer::new(move || {
         let app = App::new()
-            .configure(|config| handlers::packages::router::mount(config));
+            .configure(|config| handlers::packages::router::mount(config))
+            .configure(|config| handlers::home::router::mount(config));
         app
     })
     .bind((bind_to, port))?
