@@ -1,4 +1,5 @@
 use actix_web::HttpResponse;
+use actix_web::http::header::LOCATION;
 use tera::Context;
 use crate::templates;
 
@@ -17,4 +18,11 @@ pub fn render(
     }
     .content_type("text/html; charset=utf-8")
     .body(body)
+}
+
+pub fn redirect(location: &str) -> HttpResponse {
+    HttpResponse::Found()
+        .header(LOCATION, location)
+        .finish()
+        .into_body()
 }

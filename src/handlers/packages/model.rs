@@ -31,18 +31,18 @@ impl Package {
             .expect("Error saving new package")
     }
 
-    // pub fn update(self: &Self, connection: &PgConnection) -> Package {
-    //     self.save_changes(connection).unwrap()
-    // }
+    pub fn update(self: &Self, connection: &PgConnection) -> Package {
+        self.save_changes(connection).unwrap()
+    }
 
-    // pub fn find(uid: i32, connection: &PgConnection) -> Package {
-    //     return packages::table.find(uid).first::<Package>(connection).expect("Error loading package");
-    // }
+    pub fn find(uid: i32, connection: &PgConnection) -> Package {
+        return packages::table.find(uid).first::<Package>(connection).expect("Error loading package");
+    }
 }
 
-#[derive(Insertable)]
+#[derive(Insertable, Deserialize)]
 #[table_name="packages"]
-pub struct NewPackage<'a> {
-    pub name: &'a str,
-    pub description: &'a str
+pub struct NewPackage {
+    pub name: String,
+    pub description: String
 }
