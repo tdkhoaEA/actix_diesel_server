@@ -1,4 +1,4 @@
-use actix_web::{App, HttpServer};
+use actix_web::{App, HttpServer, web::ServiceConfig};
 use std::env;
 
 use crate::handlers;
@@ -16,11 +16,20 @@ pub async fn start_server() -> std::io::Result<()> {
     // Start http server
     HttpServer::new(move || {
         let app = App::new()
+            .configure(|config| static_handler(config))
             .configure(|config| handlers::packages::router::mount(config))
-            .configure(|config| handlers::home::router::mount(config));
+            .configure(|config| handlers::home::router::mount(config))
+        ;
         app
     })
     .bind((bind_to, port))?
     .run()
     .await
+}
+
+fn static_handler(config: &mut ServiceConfig) {
+    let static_path = env::var("STATIC_ROOT").expect("STATIC_ROOT not set!");
+
+    let fs = actix_files::Files::new("/static", &static_path);
+    config.service(fs);
 }
