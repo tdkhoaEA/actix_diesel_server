@@ -8,18 +8,12 @@
 <form action="/packages/create" method="POST">
     <p>
         <label for="name">Package Name:</label>
-        <input type="text" name="name" value="{{ form.name.value }}">
-        {% if form.name.errors | length > 0 %}
-            {{ form.name.errors }}
-        {% endif %}
+        <input type="text" name="name">
     </p>
 
     <p>
         <label for="description">Description:</label>
-        <input name="description" value="{{ form.description.value }}">
-        {% if form.description.errors | length > 0 %}
-            {{ form.description.errors }}
-        {% endif %}
+        <input name="description">
     </p>
 
     <button type="submit">Create Package</button>

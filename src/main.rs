@@ -17,7 +17,8 @@ async fn main() -> std::io::Result<()> {
     // Start http server
     HttpServer::new(move || {
         App::new()
-            .route("/packages", web::get().to(handlers::packages::controller::index))
+            .route("/packages/", web::get().to(handlers::packages::controller::index))
+            .route("/packages/new", web::get().to(handlers::packages::controller::new))
     })
     .bind((bind_to, port))?
     .run()
