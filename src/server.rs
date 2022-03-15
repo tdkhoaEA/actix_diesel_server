@@ -17,8 +17,8 @@ pub async fn start_server() -> std::io::Result<()> {
     HttpServer::new(move || {
         let app = App::new()
             .configure(|config| static_handler(config))
-            .configure(|config| handlers::packages::router::mount(config))
-            .configure(|config| handlers::home::router::mount(config))
+            .configure(|config| handlers::packages::mount(config))
+            .configure(|config| handlers::home::mount(config))
         ;
         app
     })
