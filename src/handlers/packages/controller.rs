@@ -6,7 +6,8 @@ use mainlib::database;
 
 use super::model::*;
 
-pub async fn index() -> HttpResponse {            
+pub async fn index() -> HttpResponse {      
+    println!("Packages index");
     let connection = database::establish_connection();
 
     let all_packages = Package::all(&connection);

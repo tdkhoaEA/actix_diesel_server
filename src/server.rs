@@ -12,14 +12,17 @@ pub async fn start_server() -> std::io::Result<()> {
         .unwrap_or_else(|_| "3000".to_string())
         .parse()
         .expect("PORT must be a number");
-
+    
     // Start http server
     HttpServer::new(move || {
         let app = App::new()
             .configure(|config| static_handler(config))
             .configure(|config| handlers::packages::mount(config))
+            .configure(|config| handlers::books::mount(config))
             .configure(|config| handlers::home::mount(config))
+            .handlers::home::mount(config)
         ;
+        println!("Mount complete");
         app
     })
     .bind((bind_to, port))?
