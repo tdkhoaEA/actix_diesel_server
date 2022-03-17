@@ -20,7 +20,6 @@ pub async fn start_server() -> std::io::Result<()> {
             .configure(|config| handlers::packages::mount(config))
             .configure(|config| handlers::books::mount(config))
             .configure(|config| handlers::home::mount(config))
-            .handlers::home::mount(config)
         ;
         println!("Mount complete");
         app
