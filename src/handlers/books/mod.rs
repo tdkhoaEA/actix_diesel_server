@@ -12,8 +12,8 @@ pub fn mount(config: &mut ServiceConfig) {
           .service(resource("").to(controller::index))
           // // New
           // .service(resource("/new").to(controller::new))
-          // // Create
-          // .service(resource("/create").route(post().to(controller::create)))
+          // Create
+          .service(resource("/create").route(post().to(controller::create)))
           // // Update Downloads Count
           // .service(resource("/{id}/download").to(controller::download))
   );

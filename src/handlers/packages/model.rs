@@ -20,7 +20,6 @@ impl Package {
         let results = packages
         .load::<Package>(connection)
         .expect("Error loading packages");
-        
         results
     }
 

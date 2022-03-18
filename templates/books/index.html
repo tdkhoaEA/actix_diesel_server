@@ -4,29 +4,53 @@
 
 {% block content %}
 <div class="header">
-    Here are the books 
+    Here are the books
 </div>
+<div class="form_box">  
+    <h1>Add new book</h1>
+
+    <form class="form" action="/books/create" method="POST">
+        <p>
+            <label class="label" for="title">Book Name:</label>
+            <input type="text" name="title">
+        </p>
+        <p>
+            <label class="label" for="description">Description:</label>
+            <input type = "text" name="description">
+        </p>
+        <p>
+            <label class="label" for="price">Price:</label>
+            <input type = "number" name="price">
+        </p>
+        <p>
+            <label class="label" for="rating">Rating:</label>
+            <input type = "number" name="rating">
+        </p>
+        <button class="btn" type="submit">Create Book</button>
+    </form>
+</div>  
+
 <div class="container">
-    
+
     {% for book in books %}
     <div class="book_section">
-            <div class="img_section">
-                <img src="/static/img/book.jpg" alt="Flowers in Chania">
-            </div>
-            <p class="title">
-                {{book.title}}
-            </p>
-            <p class="info">
-                Description: {{book.description}}
-            </p>
-            <p class="info">
-                Price: {{book.price}}
-            </p>
-            <p class="info">
-                Rating: {{book.rating}}
-            </p>
-        
-    
+        <div class="img_section">
+            <img src="/static/img/book.jpg" alt="Flowers in Chania">
+        </div>
+        <p class="title">
+            {{book.title}}
+        </p>
+        <p class="info">
+            Description: {{book.description}}
+        </p>
+        <p class="info">
+            Price: {{book.price}}
+        </p>
+        <p class="info">
+            Rating: {{book.rating}}
+        </p>
+
+
     </div class="book_section">
     {% endfor %}
 </div>

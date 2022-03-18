@@ -3,6 +3,5 @@ class Index {
       console.log("index.js loaded")
     }
   }
-  
   new Index();
   

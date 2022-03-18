@@ -23,6 +23,7 @@ pub async fn new() -> HttpResponse {
 }
 
 pub async fn create(form: Form<NewPackage>) -> HttpResponse {
+    println!("creating package");
     let object = form.into_inner();
 
     let connection = database::establish_connection();

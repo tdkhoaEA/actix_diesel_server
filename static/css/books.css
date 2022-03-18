@@ -28,11 +28,11 @@
   background-color:cornsilk;
   /* padding:1rem;*/
   flex-flow: row nowrap; 
-}
+}   
 
 .container .book_section{
   padding:0.5rem;
-  width: auto;
+  width: 20rem;
   height:auto;
   border:1px solid gray;  
   margin-right:0.5rem;
@@ -56,4 +56,39 @@
 .book_section .title{
   font-size:large;
   font-weight: bold;
+}
+
+.form_box{
+  width:20%;
+  margin:2rem auto;
+  border:1px solid red;
+  padding:1%;
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content: center;
+  align-items: center;
+  /*background-color: gainsboro;*/
+}
+.form_box h1{
+  color:black;
+}
+.form_box form{
+  width:80%;
+  margin: 1% 20 ;
+}
+.form p{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.form label{
+  width:40%;
+}
+.form .btn{
+  width:100%;
+  padding:1rem;
+  background-color: #289cb4;
+  border:none;
+  color:white;
+  font-size: medium;
 }
