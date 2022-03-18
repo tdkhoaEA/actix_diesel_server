@@ -16,12 +16,17 @@ pub struct Book{ // use in controller
 
 }
 
-// impl Book{
-//   pub fn all(connection: &PgConnection) -> Vec<Self>{
-//     let results = books.load::<Book>(connection).expect("Error loading book");
+impl Book{
+  pub fn all(connection: &PgConnection) -> Vec<Self>{
+    let results = books.load::<Book>(connection).expect("Error loading book");
 
-//     results
-//   }
-// }
+    results
+  }
+  pub fn show(book: &Book){
+    println!("All the information of the books:");
+    println!("Book name: {}", book.title);
+  }
+  
+}
 
 

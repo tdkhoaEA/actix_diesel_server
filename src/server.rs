@@ -19,9 +19,9 @@ pub async fn start_server() -> std::io::Result<()> {
             .configure(|config| static_handler(config))
             .configure(|config| handlers::packages::mount(config))
             .configure(|config| handlers::books::mount(config))
-            .configure(|config| handlers::home::mount(config))
+            .configure(|config| handlers::home::mount(config))  
         ;
-        println!("Mount complete");
+        // println!("Mount complete");
         app
     })
     .bind((bind_to, port))?

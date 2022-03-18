@@ -1,9 +1,33 @@
 {% extends "layout.html" %}
 
-{% block title %}Bookss{% endblock %}
+{% block title %}Books{% endblock %}
 
 {% block content %}
-<div class="wrapper pageheader">
-    <div>Here is the book</div>
+<div class="header">
+    Here are the books 
+</div>
+<div class="container">
+    
+    {% for book in books %}
+    <div class="book_section">
+            <div class="img_section">
+                <img src="/static/img/book.jpg" alt="Flowers in Chania">
+            </div>
+            <p class="title">
+                {{book.title}}
+            </p>
+            <p class="info">
+                Description: {{book.description}}
+            </p>
+            <p class="info">
+                Price: {{book.price}}
+            </p>
+            <p class="info">
+                Rating: {{book.rating}}
+            </p>
+        
+    
+    </div class="book_section">
+    {% endfor %}
 </div>
 {% endblock %}

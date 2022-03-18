@@ -5,7 +5,7 @@ use actix_web::web::{post,resource,scope,ServiceConfig};
 
 
 pub fn mount(config: &mut ServiceConfig) {
-  println!("Books mount");
+  // println!("Books mount");
   config.service(
       scope("/books/")
           // Index

@@ -4,7 +4,7 @@ pub mod model;
 use actix_web::web::{post, resource, scope, ServiceConfig};
 
 pub fn mount(config: &mut ServiceConfig) {
-    println!("Packages mount");
+    // println!("Packages mount");
     config.service(
         scope("/packages/")
             // Index
