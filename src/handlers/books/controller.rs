@@ -1,4 +1,4 @@
-use actix_web::{HttpResponse, web::Form, web::Path};
+use actix_web::{HttpResponse,HttpRequest, web::Form, web::Path};
 use tera::Context;
 
 use mainlib::renderer;
@@ -36,3 +36,11 @@ pub async fn create(form: Form<NewBook>) -> HttpResponse{
 
   renderer::redirect("/books/")
 }
+
+///req: Path<String>
+ pub async fn search(req : Path<String>)-> HttpResponse{
+  println!("this name is {}",req);
+  let mut context = Context::new();
+  context.insert("search",&req.into_inner());
+  renderer::render(200,"books/search.html",&context)
+ }
